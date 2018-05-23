@@ -11,7 +11,7 @@ def main():
         S[i]=m.addVar(vtype=GRB.INTEGER,name='S%d'%i)
         E[i]=m.addVar(vtype=GRB.INTEGER,name='E%d'%i)
     for i in  range(5):
-        m.addConstr(E[i]-S[i]>=miniCons[i],"cmini")
+        m.addConstr(E[i]-S[i]==miniCons[i],"cmini")
         m.addConstr(E[i]<=EndCons[i],"endcons")
         m.addConstr(S[i]>=StartCons[i],"startcons")
     m.addConstr( S[1]>=S[0]+7   ,"cons2")
